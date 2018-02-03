@@ -28,7 +28,6 @@ interface CacheInterface
      * Remove an item from the cache.
      *
      * @param string $key
-     * @return void
      * @return PromiseInterface
      */
     public function remove($key);
