@@ -56,9 +56,10 @@ $cache->set('foo', 'bar');
 ```
 
 This example eventually sets the value of the key `foo` to `bar`. If it
-already exists, it is overridden. No guarantees are made as to when the cache
-value is set. If the cache implementation has to go over the network to store
-it, it may take a while.
+already exists, it is overridden. To provide guarantees as to when the cache
+value is set a promise is returned. Which will fulfill with true on success or 
+rejects with an exception on error. If the cache implementation has to go over 
+the network to store it, it may take a while.
 
 #### remove()
 
@@ -67,7 +68,8 @@ $cache->remove('foo');
 ```
 
 This example eventually removes the key `foo` from the cache. As with `set`,
-this may not happen instantly.
+this may not happen instantly and a promise is returned to provide guarantees whether 
+or not the item has been removed from cache.
 
 ### ArrayCache
 
