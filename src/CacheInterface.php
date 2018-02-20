@@ -26,7 +26,7 @@ interface CacheInterface
      *
      * @param string $key
      * @param mixed $value
-     * @return PromiseInterface<bool|Exception>
+     * @return PromiseInterface<bool>
      */
     public function set($key, $value);
 
@@ -36,7 +36,7 @@ interface CacheInterface
      * resolves true.
      *
      * @param string $key
-     * @return PromiseInterface<bool|Exception>
+     * @return PromiseInterface<bool>
      */
     public function remove($key);
 }
