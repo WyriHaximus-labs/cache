@@ -7,7 +7,7 @@ use React\Promise\PromiseInterface;
 /**
  * All methods only reject with an exception when an error occurs on the underlying storage
  * layer, for example the connection with Redis dropped and cannot be recovered, or the
- * directory on the filesystem used to store cache has the wrong permissions of is full.
+ * directory on the filesystem used to store cache has the wrong permissions or is full.
  */
 interface CacheInterface
 {
