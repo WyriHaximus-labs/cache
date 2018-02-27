@@ -13,7 +13,8 @@ interface CacheInterface
 {
     /**
      * Retrieve an item from the cache, resolves with its value on
-     * success or null when no item can be found.
+     * success or null when no item can be found. It will reject with an exception
+     * on error. (Note that a cache miss isn't an error.)
      *
      * @param string $key
      * @return PromiseInterface
