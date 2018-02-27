@@ -21,22 +21,22 @@ interface CacheInterface
     public function get($key);
 
     /**
-     * Store an item in the cache, returns a promise which resolves to true on success or
+     * Store an item in the cache, returns a promise which resolves to null on success or
      * rejects with an exception on error.
      *
      * @param string $key
      * @param mixed $value
-     * @return PromiseInterface<bool>
+     * @return PromiseInterface
      */
     public function set($key, $value);
 
     /**
-     * Remove an item from the cache, returns a promise which resolves to true on success or
+     * Remove an item from the cache, returns a promise which resolves to null on success or
      * rejects with an exception on error. When the $key isn't found in the cache it also
      * resolves true.
      *
      * @param string $key
-     * @return PromiseInterface<bool>
+     * @return PromiseInterface
      */
     public function remove($key);
 }
