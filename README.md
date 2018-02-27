@@ -47,7 +47,8 @@ This example fetches the value of the key `foo` and passes it to the
 `var_dump` function. You can use any of the composition provided by
 [promises](https://github.com/reactphp/promise).
 
-If the key `foo` does not exist, the promise will be fulfilled with `null` as value.
+If the key `foo` does not exist, the promise will be fulfilled with `null` as value. On 
+any error it will reject with an exception.
 
 #### set()
 
