@@ -43,7 +43,7 @@ class ArrayCacheTest extends TestCase
         $mock
             ->expects($this->once())
             ->method('__invoke')
-            ->with($this->identicalTo(null));
+            ->with($this->identicalTo(true));
 
         $setPromise->then($mock);
 
@@ -71,7 +71,7 @@ class ArrayCacheTest extends TestCase
         $mock
             ->expects($this->once())
             ->method('__invoke')
-            ->with($this->identicalTo(null));
+            ->with($this->identicalTo(true));
 
         $removePromise->then($mock);
 

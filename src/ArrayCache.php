@@ -20,12 +20,12 @@ class ArrayCache implements CacheInterface
     public function set($key, $value)
     {
         $this->data[$key] = $value;
-        return Promise\resolve();
+        return Promise\resolve(true);
     }
 
     public function remove($key)
     {
         unset($this->data[$key]);
-        return Promise\resolve();
+        return Promise\resolve(true);
     }
 }
