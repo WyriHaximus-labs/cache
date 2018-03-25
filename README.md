@@ -48,7 +48,7 @@ This example fetches the value of the key `foo` and passes it to the
 [promises](https://github.com/reactphp/promise).
 
 If the key `foo` does not exist, the promise will be fulfilled with `null` as value. On 
-any error it will reject with an exception.
+any error it will also resolve with `null`.
 
 #### set()
 
