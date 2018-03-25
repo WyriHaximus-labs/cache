@@ -4,17 +4,11 @@ namespace React\Cache;
 
 use React\Promise\PromiseInterface;
 
-/**
- * All methods only reject with an exception when an error occurs on the underlying storage
- * layer, for example the connection with Redis dropped and cannot be recovered, or the
- * directory on the filesystem used to store cache has the wrong permissions or is full.
- */
 interface CacheInterface
 {
     /**
      * Retrieve an item from the cache, resolves with its value on
-     * success or null when no item can be found. It will reject with an exception
-     * on error. (Note that a cache miss isn't an error.)
+     * success or null when no item can be found or when an error occurs.
      *
      * @param string $key
      * @return PromiseInterface
@@ -27,7 +21,7 @@ interface CacheInterface
      *
      * @param string $key
      * @param mixed $value
-     * @return PromiseInterface<bool>
+     * @return PromiseInterface Returns a promise which resolves to true on success of false on error
      */
     public function set($key, $value);
 
@@ -37,7 +31,7 @@ interface CacheInterface
      * resolves true.
      *
      * @param string $key
-     * @return PromiseInterface<bool>
+     * @return PromiseInterface Returns a promise which resolves to true on success of false on error
      */
     public function remove($key);
 }
