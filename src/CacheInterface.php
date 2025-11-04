@@ -4,6 +4,9 @@ namespace React\Cache;
 
 use React\Promise\PromiseInterface;
 
+/**
+ * @template T
+ */
 interface CacheInterface
 {
     /**
@@ -25,8 +28,8 @@ interface CacheInterface
      * [promises](https://github.com/reactphp/promise).
      *
      * @param string $key
-     * @param mixed  $default Default value to return for cache miss or null if not given.
-     * @return PromiseInterface<mixed>
+     * @param T      $default Default value to return for cache miss or null if not given.
+     * @return PromiseInterface<T>
      */
     public function get(string $key, $default = null): PromiseInterface;
 
@@ -70,7 +73,7 @@ interface CacheInterface
      * expire in 30s.
      *
      * @param string $key
-     * @param mixed  $value
+     * @param T     $value
      * @param ?float $ttl
      * @return PromiseInterface<bool> Returns a promise which resolves to `true` on success or `false` on error
      */
@@ -120,8 +123,8 @@ interface CacheInterface
      * by [promises](https://github.com/reactphp/promise).
      *
      * @param iterable<string> $keys A list of keys that can obtained in a single operation.
-     * @param mixed $default Default value to return for keys that do not exist.
-     * @return PromiseInterface<iterable<string,mixed>> Returns a promise which resolves to an `array` of cached values
+     * @param T $default Default value to return for keys that do not exist.
+     * @return PromiseInterface<iterable<string,T>> Returns a promise which resolves to an `array` of cached values
      */
     public function getMultiple(iterable $keys, $default = null): PromiseInterface;
 
@@ -145,7 +148,7 @@ interface CacheInterface
      * This example eventually sets the list of values - the key `foo` to 1 value
      * and the key `bar` to 2. If some of the keys already exist, they are overridden.
      *
-     * @param iterable<string,mixed> $values A list of key => value pairs for a multiple-set operation.
+     * @param iterable<string,T> $values A list of key => value pairs for a multiple-set operation.
      * @param ?float $ttl Optional. The TTL value of this item.
      * @return PromiseInterface<bool> Returns a promise which resolves to `true` on success or `false` on error
      */

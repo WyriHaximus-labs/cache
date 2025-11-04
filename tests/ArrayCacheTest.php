@@ -7,7 +7,7 @@ use React\Cache\ArrayCache;
 class ArrayCacheTest extends TestCase
 {
     /**
-     * @var ArrayCache
+     * @var ArrayCache<mixed>
      */
     private $cache;
 

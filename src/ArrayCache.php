@@ -6,12 +6,16 @@ use React\Promise\PromiseInterface;
 use function React\Promise\all;
 use function React\Promise\resolve;
 
+/**
+ * @template T
+ * @template-implements CacheInterface<T>
+ */
 class ArrayCache implements CacheInterface
 {
     /** @var ?int */
     private $limit;
 
-    /** @var array<string,mixed> */
+    /** @var array<string,T> */
     private $data = [];
 
     /** @var array<string,float> */
@@ -131,7 +135,7 @@ class ArrayCache implements CacheInterface
             $values[$key] = $this->get($key, $default);
         }
 
-        /** @var PromiseInterface<array<string, mixed>> */
+        /** @var PromiseInterface<array<string, T>> */
         return all($values);
     }
 
